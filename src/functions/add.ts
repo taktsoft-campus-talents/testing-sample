@@ -1,12 +1,12 @@
 import { fetchData } from "./fetchData";
 
-export function add(a: number, b: number): number {
+export async function add(a: number, b: number): Promise<number> {
   if (a === 0) {
     return 100;
   }
 
   if (a === 1) {
-    fetchData("http://localhost/");
+    await fetchData("http://localhost/");
   }
 
   return a + b;

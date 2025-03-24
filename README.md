@@ -1,54 +1,48 @@
-# React + TypeScript + Vite
+# Unit Testing with Vitest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setup
 
-Currently, two official plugins are available:
+- https://vitest.dev/guide/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```ts
+// src/filename.ts
+// src/filename.test.ts
 
-## Expanding the ESLint configuration
+import { beforeEach, describe, expect, it } from "vitest";
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+describe("test-suite / filename", () => {
+  beforeEach(() => {});
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+  it("should do ...", () => {
+    // ...
+    expect(true).toBe(true);
+  });
+
+  it("should do something async ...", async () => {});
+});
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Example: src/functions/add.test.ts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Mocking
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- https://vitest.dev/api/mock.html
+- https://vitest.dev/api/vi.html
+
+## Coverage
+
+Just run `npx vitest --coverage`.
+
+The script will guide you through the setup process.
+
+Check: coverage/index.html
+
+## Component Testing
+
+https://testing-library.com/docs/react-testing-library/cheatsheet
+
+- Example: src/components/MyButton.test.tsx
+
+https://github.com/vitest-dev/vitest-browser-react
+
+- Example: src/vitest-example/HelloWorld.test.tsx

@@ -39,6 +39,8 @@ Check: coverage/index.html
 
 ## Component Testing
 
+- https://vitest.dev/guide/browser/
+
 https://testing-library.com/docs/react-testing-library/cheatsheet
 
 - Example: src/components/MyButton.test.tsx

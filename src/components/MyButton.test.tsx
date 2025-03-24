@@ -5,7 +5,7 @@ import { MyButton } from "./MyButton";
 describe("MyButton", () => {
   const { getByTestId } = render(<MyButton />);
 
-  it("should render", async () => {
+  it("should render", () => {
     const myCounterComponent = getByTestId("my-counter-component");
     expect(myCounterComponent).toBeInTheDocument();
   });
